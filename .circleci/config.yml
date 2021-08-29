@@ -29,28 +29,22 @@ jobs:
             make install
             # Install hadolint
             wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
-                chmod +x /bin/hadolint
-            curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-            install minikube-linux-amd64 /bin/minikube
-            chmod +x /bin/minikube
-            curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-            install kubectl /bin/kubectl
-            chmod +x /bin/kubectl
+                chmod +x /bin/hadolin
 
       - run:
           name: install minikube
           command: |
-            curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-            install minikube-linux-amd64 /bin/minikube
-            chmod +x /bin/minikube
+            curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 &&\
+                install minikube-linux-amd64 /bin/minikube &&\
+                chmod +x /bin/minikube
 
 
       - run:
           name: install kubectl
           command: |
-            curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-            install kubectl /bin/kubectl
-            chmod +x /bin/kubectl
+            curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" &&\
+                install kubectl /bin/kubectl &&\
+                chmod +x /bin/kubectl
 
       - save_cache:
           paths:
@@ -64,17 +58,17 @@ jobs:
             . venv/bin/activate
             make lint        
             
-      # run lint!
-      - run:
-          name: check docker
-          command: |
-            . venv/bin/activate
-            docker --version      
+      # # run lint!
+      # - run:
+      #     name: check docker
+      #     command: |
+      #       . venv/bin/activate
+      #       docker --version      
             
-      # run lint!
-      - run:
-          name: check kubernet
-          command: |
-            . venv/bin/activate
-            kubectl version        
+      # # run lint!
+      # - run:
+      #     name: check kubernet
+      #     command: |
+      #       . venv/bin/activate
+      #       kubectl version        
 
