@@ -4,10 +4,10 @@
 
 # Step 1:
 # Build image and add a descriptive tag
-docker build --tag=projectdocker .
+docker build --tag=projdocker .
 # Step 2: 
 # List docker images
 docker image ls
 # Step 3: 
 # Run flask app
-docker run -it projectdocker bash 
+docker run -it projdocker bash 
