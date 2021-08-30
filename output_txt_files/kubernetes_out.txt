@@ -1,1 +1,8 @@
-<paste log output from Kubernetes-mediated prediction, here>
+ubuntu@ip-172-31-42-45:~$ ./make_prediction.sh
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+ubuntu@ip-172-31-42-45:~$
