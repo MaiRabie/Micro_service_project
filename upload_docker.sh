@@ -10,7 +10,7 @@ dockerpath="78dadb74358b/projdocker"
 
 # Step 2:  
 # Authenticate & tag
-docker login --username=78dadb74358b --password=maidocker123456789 &&\
+docker login --username=78dadb74358b &&\
     docker image tag projdocker $dockerpath
 echo "Docker ID and Image: $dockerpath"
 
